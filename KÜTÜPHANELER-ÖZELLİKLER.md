@@ -8,5 +8,12 @@ Bu proje, hukuk belgelerini (PDF ve JPG) analiz eden ve kullanıcıyla bu belgel
 
 ## ✨ Özellikler
 - **Multimodal Analiz:** Hem taranmış görselleri hem de metin dosyalarını işleyebilir. //
-- **Akıllı Sohbet:** Gemini 1.5 Flash modeli ile belge üzerinden soru-cevap. //
-- **Hukuki Odak:** Karar özetleme ve avukatlara tavsiye sunma odaklı tasarım. //
+- - **Hukuki Odak:** Karar özetleme ve avukatlara tavsiye sunma odaklı tasarım. //
+
+    # Öncelik sırası: 1.5-flash (hızlı/görsel), değilse 1.5-pro, o da yoksa ilk bulunan 
+    if 'models/gemini-1.5-flash' in modeller:
+        secilen_model = 'models/gemini-1.5-flash'
+    elif 'models/gemini-pro' in modeller:
+        secilen_model = 'models/gemini-pro'
+    else:
+        secilen_model = modeller[0]
